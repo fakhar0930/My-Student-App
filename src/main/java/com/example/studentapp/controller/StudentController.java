@@ -4,6 +4,7 @@ import com.example.studentapp.entity.Student;
 import com.example.studentapp.service.StudentService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class StudentController {
     private final StudentService studentService;
 
     @PostMapping
-    public Student create(@RequestBody Student student) {
+    public Student create(@RequestBody @Validated Student student) {
         return studentService.save(student);
     }
 
